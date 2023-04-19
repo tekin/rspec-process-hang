@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reproduces a bug where the Rspec spec runner fails to exit and hangs
+if there is a spec in the suite that forks processes:
 
-Things you may want to cover:
+```
+  $ bin/rspec
+```
+The above command will never exit.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Note that the Chrome process remains running at the end. Killing
+Chrome manually causes the rspec runner to exit.
